@@ -10,7 +10,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
-@Document
+@Document(collection = "users")
 public class User {
     @Id
     String id;
@@ -44,4 +44,9 @@ public class User {
     @Setter
     @Indexed(unique = true, name = "letterboxdId_1", direction = IndexDirection.ASCENDING)
     String letterboxdId;
+
+    @Getter
+    @Setter
+    ObjectId[] reviews;
+
 }

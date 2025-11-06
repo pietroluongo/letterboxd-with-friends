@@ -6,26 +6,27 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
-@Document(collection = "events")
-public class Event {
-
+@Document(collection = "userreviews")
+public class UserReview {
     @Id
-    @Getter
     ObjectId id;
 
     @Getter
     @Setter
-    @NotBlank
-    String name;
+    float score;
 
     @Getter
     @Setter
-    ObjectId[] users;
+    @NotNull
+    ObjectId movie;
+
+    @Getter
+    @Setter
+    String content;
 
     @Getter
     @Setter
@@ -35,5 +36,5 @@ public class Event {
     @Getter
     @Setter
     @NotNull
-    ObjectId group;
+    ObjectId user;
 }

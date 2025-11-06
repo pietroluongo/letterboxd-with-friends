@@ -11,11 +11,9 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
-@Document(collection = "events")
-public class Event {
-
+@Document(collection = "movies")
+public class Movie {
     @Id
-    @Getter
     ObjectId id;
 
     @Getter
@@ -25,15 +23,16 @@ public class Event {
 
     @Getter
     @Setter
-    ObjectId[] users;
+    @NotBlank
+    String externalId;
 
     @Getter
     @Setter
     @NotNull
-    Date date;
+    Date releaseDate;
 
     @Getter
     @Setter
-    @NotNull
-    ObjectId group;
+    ObjectId[] reviews;
+
 }

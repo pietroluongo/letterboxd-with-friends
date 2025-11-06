@@ -1,21 +1,16 @@
 package com.pietroluongo.letterboxd_with_friends.model;
 
-import java.util.Date;
-
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
-@Document(collection = "events")
-public class Event {
-
+@Document
+public class Group {
     @Id
-    @Getter
     ObjectId id;
 
     @Getter
@@ -25,15 +20,10 @@ public class Event {
 
     @Getter
     @Setter
-    ObjectId[] users;
+    ObjectId[] members;
 
     @Getter
     @Setter
-    @NotNull
-    Date date;
+    ObjectId[] events;
 
-    @Getter
-    @Setter
-    @NotNull
-    ObjectId group;
 }
